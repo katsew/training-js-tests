@@ -8,7 +8,7 @@ describe ('test001', function (){
   });
 
   it ('undef', function (){
-    expect (undef()).toBeDefined();
+    expect (undef()).toBeUndefined();
   });
 
   it ('not undef', function (){

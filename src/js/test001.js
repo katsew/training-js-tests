@@ -11,5 +11,5 @@ function undef () {
 }
 
 function notUndef () {
-  return null;
+  return true;
 }
