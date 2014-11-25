@@ -10,14 +10,23 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine-jquery', 'jasmine-ajax', 'jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
       'src/js/*.js',
-      'test/*.spec.js'
+      'test/*.spec.js',
+      { 
+        pattern: 'test/fixture/*.html', 
+        watched: true,
+        include: false,
+        served: true
+      }
     ],
 
+    proxies: {
+        '/fixture/': 'http://localhost:9876/base/test/fixture/'
+    },
 
     // list of files to exclude
     exclude: [
@@ -59,7 +68,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['ChromeCanary'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
